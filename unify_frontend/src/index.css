@@ -1,0 +1,15 @@
+@import 'flowbite';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer utilities {
+  .bg-bodybg {
+    background-color:rgba(255, 255, 255, 1);
+  }
+}
+
+body {
+  @apply bg-bodybg;
+}
