@@ -7,6 +7,10 @@ module.exports = {
       colors:{
         header_bg:'rgba(249, 250, 252, 1)',
         bodybg:'rgba(255, 255, 255, 1)',
+      },
+      width:{
+        'username_width':'300px',
+        'about_width':'400px',
       }
     },
   },
