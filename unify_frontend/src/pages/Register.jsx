@@ -53,6 +53,26 @@ const Register = () => {
               </div>
               <div className="col-span-full w-3/4">
                 <label
+                  htmlFor="password"
+                  className="block text-lg font-medium text-gray-900"
+                >
+                  Password
+                </label>
+                <div className="mt-3">
+                  <div className="flex items-center bg-white pl-1">
+                    <div className="select-none text-base text-gray-500 sm:text-sm"></div>
+                    <input
+                      type="text"
+                      name="password"
+                      id="password"
+                      className="block w-full py-1.5 pl-2 pr-3 text-base text-gray-900 rounded-lg placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm"
+                      placeholder="password dalo"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="col-span-full w-3/4">
+                <label
                   htmlFor="about"
                   className="block text-sm font-medium text-gray-900"
                 >
