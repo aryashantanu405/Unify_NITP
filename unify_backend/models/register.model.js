@@ -52,7 +52,7 @@ const loginSchema=mongoose.Schema({
     maxlength:[20,'State must be less than 20 characters long'],
   },
   postal_code:{
-    type:Number,
+    type:String,
     minlength:[6,'Postal code must be atleast 6 characters long'],
   },
 });
