@@ -1,9 +1,23 @@
 import React from "react";
-
+import axios from "axios";
 const Register = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+    try {
+      const response = await axios.post('/api/register', data).then(()=>{
+        alert("User data sent to backend");
+      })
+      console.log(response.data);
+    } catch (error) {
+      console.error("There was an error!,data not sent to backend", error);
+    }
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen pt-10 ">
-      <form className="px-8 py-8 w-full sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/2 border-4 rounded-lg border-black-900">
+      <form className="px-8 py-8 w-full sm:w-3/4 md:w-1/2 lg:w-1/3 xl:w-1/2 border-4 rounded-lg border-black-900" onSubmit={handleSubmit}>
         <div className="space-y-12">
           <div className="pb-12 pt-2 pl-8 pr-8">
             <h2 className="text-4xl font-bold text-gray-900 text-center">Register</h2>
@@ -47,6 +61,26 @@ const Register = () => {
                       id="username"
                       className="block w-full py-1.5 pl-2 pr-3 text-base text-gray-900 rounded-lg placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm"
                       placeholder="apna name dalo"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="col-span-full w-3/4">
+                <label
+                  htmlFor="password"
+                  className="block text-lg font-medium text-gray-900"
+                >
+                  Password
+                </label>
+                <div className="mt-3">
+                  <div className="flex items-center bg-white pl-1">
+                    <div className="select-none text-base text-gray-500 sm:text-sm"></div>
+                    <input
+                      type="Password"
+                      name="password"
+                      id="password"
+                      className="block w-full py-1.5 pl-2 pr-3 text-base text-gray-900 rounded-lg placeholder:text-gray-400 focus:outline focus:outline-0 sm:text-sm"
+                      placeholder="password dalo"
                     />
                   </div>
                 </div>
@@ -130,7 +164,7 @@ const Register = () => {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="first-name"
+                  name="firstname"
                   id="first-name"
                   autoComplete="given-name"
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
@@ -148,7 +182,7 @@ const Register = () => {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="last-name"
+                  name="lastname"
                   id="last-name"
                   autoComplete="family-name"
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
@@ -184,7 +218,7 @@ const Register = () => {
               <div className="mt-2 grid grid-cols-1">
                 <select
                   id="Branch"
-                  name="Branch"
+                  name="branch"
                   autoComplete="Branch-name"
                   className="col-start-1 row-start-1 w-full appearance-none rounded-md bg-white py-1.5 pl-3 pr-8 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
                 >
@@ -255,7 +289,7 @@ const Register = () => {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="postal-code"
+                  name="postalcode"
                   id="postal-code"
                   autoComplete="postal-code"
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm"
