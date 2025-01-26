@@ -92,7 +92,18 @@ router.get("/gettcfevnt/:id", async (req, res) => {
       res.status(500).json({ msg: e });
     }
   })
-  
+  // Get all events from all clubs
+router.get("/events", async (req, res) => {
+  try {
+    const clubs = await myClub.find();
+    const allEvents = clubs.reduce((events, club) => {
+      return events.concat(club.event);
+    }, []);
+    res.status(200).json(allEvents);
+  } catch (e) {
+    res.status(500).json({ msg: e });
+  }
+});
 module.exports = router;
 =======
 const router = express.Router();
