@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-const mongoose = require("mongoose");
-const express = require("express");
-
-const dotenv = require("dotenv");
-const indexroutes = require("./routes/routes.index");
-const connecttodb = require("./config/registerdb");
-connecttodb();
-dotenv.config();
-
-const app = express();
-
-app.use(express.json());
-app.use('/api', indexroutes);
-
-app.listen(3000, () => {
-    console.log("Server is listening to port 3000...");
-});
-=======
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -37,4 +18,4 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api', indexroutes);
 app.listen(3000);
->>>>>>> e5a66828dbf426378df4156e38b60dd11b92817b
+
