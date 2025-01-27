@@ -1,7 +1,8 @@
 const express = require("express");
-<<<<<<< HEAD
-const myClub = require("../models/club_model");
 const router = express.Router();
+const bcrypt = require("bcrypt");
+const registerModel = require("../models/register.model");
+const myClub = require("../models/club_model");
 const upload = require("../middleware/multer");
 const { getUrl } = require("../config/cloudinary_config");
 
@@ -14,8 +15,7 @@ router.post("/unify/crcl", async (req, res) => {
     res.status(500).json({ msg: e });
   }
 });
-
-// Upload Club logo
+//upload club logo
 router.put("/upload/logo/:id", upload.single("image"), async (req, res) => {
   try {
     const url = await getUrl(req.file.path);
@@ -37,7 +37,6 @@ router.put("/upload/logo/:id", upload.single("image"), async (req, res) => {
     res.status(500).json({ msg: e });
   }
 });
-
 //Edit club info => i.e., Adding event, Adding member, Other editing purposes
 router.put("/editinfo/:id", async (req, res) => {
     try {
@@ -52,7 +51,6 @@ router.put("/editinfo/:id", async (req, res) => {
       res.status(500).json({ msg: e });
     }
   });
-
 //Get Office Bearers
 router.get("/getob/:id", async (req, res) => {
     try{
@@ -71,8 +69,7 @@ router.get("/getob/:id", async (req, res) => {
     {
       res.status(500).json({ msg: e });
     }
-  })
-
+  });
 //Get TCF Events
 router.get("/gettcfevnt/:id", async (req, res) => {
     try{
@@ -91,7 +88,7 @@ router.get("/gettcfevnt/:id", async (req, res) => {
     {
       res.status(500).json({ msg: e });
     }
-  })
+  });
   // Get all events from all clubs
 router.get("/events", async (req, res) => {
   try {
@@ -104,11 +101,6 @@ router.get("/events", async (req, res) => {
     res.status(500).json({ msg: e });
   }
 });
-module.exports = router;
-=======
-const router = express.Router();
-const bcrypt = require("bcrypt");
-const registerModel = require("../models/register.model");
 router.post('/register', async (req, res) => {
   const { username, password, about, firstname, lastname, email, branch, city, region, postalcode } = req.body;
   // console.log({ username, password, about, firstname, lastname, email, branch, city, region, postalcode });
